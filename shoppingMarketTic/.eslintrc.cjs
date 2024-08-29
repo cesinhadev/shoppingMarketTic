@@ -10,6 +10,8 @@ module.exports = {
         "plugin:react-hook/recommended",
         "plugin:react/remomended",
         "plugin:react/jsx-runtime",
+        "plugin:tailwind/recommended",
+				
     ],
     ignorePatterns: ['dist', '.eslintrc.cjs'],
     parser: '@typescript-eslint/parser',
