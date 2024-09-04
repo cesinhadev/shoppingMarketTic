@@ -6,4 +6,14 @@ const findAll = async() => {
 	return resp.data
 }
 
-export default findAll
+const searchName = async(name: string) => {
+	const response = await http.get<ProductProps[]>(`products?name=${name}`);
+	return response.data
+}
+
+const ProductService = {
+	findAll,
+	searchName
+}
+
+export default ProductService;
