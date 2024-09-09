@@ -4,20 +4,25 @@ import ProductService from "../services/product.service";
 import { ProductProps } from "../interfaces/Product";
 import { ChangeEvent, useState } from "react";
 import { debounce } from "lodash";
+import List from "./List";
 
 const Header = () => {
 	const [productName, setproductName] = useState("");
+	const [isOpen, setIsOpen] = useState(false);
 
 	const {
 		data: productsByName,
-		isLoading,
-		error,
-	} = useQuery<ProductProps[], Error>(["query-products-by-name", productName], async () => {
+		/*isLoading,
+		error,*/
+	} = useQuery<ProductProps[], Error>(["query-products-by-name", productName], async () => { 
 		return ProductService.searchName(productName);
 	}, {
 			enabled:productName.length > 0,
-	},);
-
+			onSuccess: (res) => {
+				setIsOpen(res?.length > 0);
+			}
+	});
+	
 	const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 		setproductName(value);
@@ -37,13 +42,28 @@ const Header = () => {
 						/>
 					</a>
 				</div>
-				<div className="w-4/5">
+				<div className="w-4/5 relative">
 					<Input onChange={debounceOnChange} />
-					<ul>
+					{isOpen && 
+						<ul className="absolute z-50 mt-4 max-h-60 w-full overflow-auto rounded-md bg-white p-4 shadow-lg">
 						{productsByName?.map((product: ProductProps) => {
-							return <li>{product.name}</li>;
+							return (
+							<List className="items-center justify-between">
+								{product.name}
+								<div>
+									<img
+									className="h-20 rounded-t-lg object-cover" 
+									src={`./assets/produtos/${product.image}.jpg`}
+									/>
+									
+									
+									<span>R$ {product.price}</span>
+								</div>
+							</List>
+							)
 						})}
 					</ul>
+					}
 				</div>
 				<div>Carrinho</div>
 			</div>
