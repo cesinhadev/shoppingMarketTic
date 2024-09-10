@@ -2,13 +2,16 @@ import { useQuery } from "react-query";
 import Input from "./Input";
 import ProductService from "../services/product.service";
 import { ProductProps } from "../interfaces/Product";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { debounce } from "lodash";
 import List from "./List";
+import { useOnClickOutside } from "../hooks/useClickOutside";
 
 const Header = () => {
 	const [productName, setproductName] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
+	const refDropdown = useRef<HTMLUListElement>(null)
+
 
 	const {
 		data: productsByName,
@@ -28,6 +31,10 @@ const Header = () => {
 		setproductName(value);
 	};
 
+	useOnClickOutside(refDropdown, () => {
+		setIsOpen(false);
+	});
+
 	const debounceOnChange = debounce(handleInput, 500);
 
 	return (
@@ -45,7 +52,7 @@ const Header = () => {
 				<div className="w-4/5 relative">
 					<Input onChange={debounceOnChange} />
 					{isOpen && 
-						<ul className="absolute z-50 mt-4 max-h-60 w-full overflow-auto rounded-md bg-white p-4 shadow-lg">
+						<ul ref={refDropdown} className="absolute z-50 mt-4 max-h-60 w-full overflow-auto rounded-md bg-white p-4 shadow-lg">
 						{productsByName?.map((product: ProductProps) => {
 							return (
 							<List className="items-center justify-between">

@@ -6,12 +6,12 @@ import { tv, VariantProps } from "tailwind-variants";
 const listVariants = tv({
 	variants: {
 		variant: {
-			primary:"flex rounded-md px-1 py-4 text-sm capitalize text-gray-700 houver:bg-gray-200"
+			primary:"flex capitalize text-gray-700 hover:bg-gray-200"
 		},
 	},
-	defaultVariants:{
+	defaultVariants: {
 		variant: "primary"
-	},
+	}
 });
 
 type ListProps = ComponentProps<"li"> & VariantProps<typeof listVariants>;
