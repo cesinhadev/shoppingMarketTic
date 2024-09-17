@@ -1,11 +1,12 @@
-import { useQuery } from "react-query";
-import Input from "./Input";
-import ProductService from "../services/product.service";
-import { ProductProps } from "../interfaces/Product";
 import { ChangeEvent, useRef, useState } from "react";
+import { CiShoppingCart } from "react-icons/ci";
 import { debounce } from "lodash";
-import List from "./List";
+import { ProductProps } from "../interfaces/Product";
+import { useQuery } from "react-query";
 import { useOnClickOutside } from "../hooks/useClickOutside";
+import Input from "./Input";
+import List from "./List";
+import ProductService from "../services/product.service";
 
 const Header = () => {
 	const [productName, setproductName] = useState("");
@@ -72,7 +73,9 @@ const Header = () => {
 					</ul>
 					}
 				</div>
-				<div>Carrinho</div>
+				<a href="/shopping-cart">
+					<CiShoppingCart className="h-12 w-20" />
+				</a>
 			</div>
 		</header>
 	);
