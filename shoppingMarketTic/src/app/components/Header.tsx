@@ -7,6 +7,7 @@ import { useOnClickOutside } from "../hooks/useClickOutside";
 import Input from "./Input";
 import List from "./List";
 import ProductService from "../services/product.service";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const [productName, setproductName] = useState("");
@@ -73,9 +74,9 @@ const Header = () => {
 					</ul>
 					}
 				</div>
-				<a href="/shopping-cart">
+				<Link className="flex" to="/shopping-cart" relative="path">
 					<CiShoppingCart className="h-12 w-20" />
-				</a>
+				</Link>
 			</div>
 		</header>
 	);
