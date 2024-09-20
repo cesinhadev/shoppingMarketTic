@@ -14,13 +14,11 @@ export interface ListItem {
 
 export interface ShoppingListContextData {
 	items: ListItem[];
-	/*totalSunAmount: number;
+	totalSumAmount: number;
 	totalQtd: number;
-	*/
 	addProduct: (id: number, name: string, price: number) => void;
-	/*onRemove: (id: number) => void;
+	onRemove: (id: number) => void;
 	onDecrease: (id:number, price: number) => void;
-*/
 }
 
 const ShoppingListContextDefaultValue = {
@@ -33,7 +31,7 @@ const ShoppingListContextDefaultValue = {
 };
 
 const ShoppingListContext = createContext<ShoppingListContextData>(
-	ShoppingListContextDefaultValue,
+	ShoppingListContextDefaultValue
 );
 
 export const ShoppingListProvider = ({
@@ -43,7 +41,7 @@ export const ShoppingListProvider = ({
 
 	const addProduct = (id: number, name: string, price: number) => {
 		const productAlreadyInCart = items.find((product) => product.id === id);
-
+		
 		if (!productAlreadyInCart) {
 			const item: ListItem = {
 				id: id,
@@ -52,29 +50,68 @@ export const ShoppingListProvider = ({
 				unitPrice: price,
 				quantity: 1,
 			};
-
+			
 			return setItems([...items, item]);
 		}
-
+		
 		if (productAlreadyInCart) {
 			const updateCart = items.map((cartItem) =>
 				cartItem.id === id
-					? {
-							...cartItem,
-							quantity: Number(cartItem.quantity) + 1,
-							amount: cartItem.amount + price,
-						}
-					: cartItem,
-			);
+			? {
+				...cartItem,
+				quantity: Number(cartItem.quantity) + 1,
+				amount: cartItem.amount + price,
+			}
+			: cartItem,
+		);
+		
+		return setItems(updateCart);
+	}
+};
 
-			return setItems(updateCart);
+const onRemove = (id: number) => {
+	const filteredItems = items.filter((product) => product.id !== id);
+	setItems(filteredItems);
+
+}
+
+const onDecrease = (id: number, price:number) => {
+	const productAlreadyInCart = items.find((product) => product.id === id);
+
+	if(productAlreadyInCart && productAlreadyInCart?.quantity <= 1){
+		return onRemove(id);
+	}
+	
+	if(productAlreadyInCart){
+		const updateCart = items.map((cartItem) =>
+			cartItem.id === id
+		? {
+			...cartItem,
+			quantity: Number(cartItem.quantity) - 1,
+			amount: cartItem.amount - price,
 		}
-	};
+		: cartItem,
+	);
+		setItems(updateCart);
+	}
+};
+
+const totalSumAmount = items.reduce((acc, item) => {
+	const amountItem = item.amount;
+	return acc + amountItem
+}, 0);
+
+const totalQtd = items.reduce((acc, item) => {
+	const qtdItem = item.quantity;
+	return acc + qtdItem
+}, 0);
+
 	return (
-		<ShoppingListContext.Provider value={{ items, addProduct }}>
+		<ShoppingListContext.Provider value={{ items, addProduct, onDecrease, onRemove,totalSumAmount,totalQtd}}>
 			{children}
 		</ShoppingListContext.Provider>
 	);
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useShoppingList = () => useContext(ShoppingListContext);
