@@ -67,7 +67,7 @@
       "id": "8",
       "name": "bicicleta",
       "description": "Esta bicicleta de montanha de alto desempenho é projetada para entusiastas de ciclismo que buscam aventuras emocionantes. Com componentes de qualidade e durabilidade excepcionais, esta bicicleta irá levá-lo a lugares incríveis em suas trilhas favoritas.",
-      "price": 199.99,
+      "price": 399.50,
       "quantity": 0,
       "category": "Esportes",
       "image": "bicicleta"
@@ -76,7 +76,7 @@
       "id": "9",
       "name": "chuteira",
       "description": "Esta chuteira é ideal para jogadores de futebol que buscam tração e controle superiores no campo. Com design anatômico e materiais de alta qualidade, garantem conforto e desempenho excepcionais. Domine o jogo com estas chuteiras de alta qualidade.",
-      "price": 44.99,
+      "price": 54.99,
       "quantity": 0,
       "category": "Esportes",
       "image": "chuteira"
@@ -85,7 +85,7 @@
       "id": "10",
       "name": "furadeira",
       "description": "Esta furadeira elétrica de alta potência é perfeita para projetos de construção e reparos em casa. Com múltiplas velocidades e opções de perfuração, é uma ferramenta versátil que simplificará suas tarefas. A potência que você precisa, quando você precisa.",
-      "price": 79.99,
+      "price": 89.75,
       "quantity": 0,
       "category": "Ferramentas",
       "image": "furadeira"
@@ -94,7 +94,7 @@
       "id": "11",
       "name": "liquidificador",
       "description": "Este liquidificador de alta velocidade é essencial para a preparação de sucos, smoothies e muito mais. Com lâminas afiadas e potência eficiente, ele mistura ingredientes com facilidade. Desfrute de bebidas saudáveis e saborosas em questão de segundos.",
-      "price": 39.99,
+      "price": 79.99,
       "quantity": 0,
       "category": "Eletrodomésticos",
       "image": "liquidificador"
@@ -103,7 +103,7 @@
       "id": "12",
       "name": "pneu",
       "description": "Este pneu de carro durável oferece desempenho confiável em todas as condições. Com design resistente a desgaste e aderência excepcional, ele proporciona uma condução suave e segura. Mantenha seu veículo em boas condições com esses pneus de qualidade.",
-      "price": 49.99,
+      "price": 68.99,
       "quantity": 0,
       "category": "Automóveis",
       "image": "pneu"
@@ -112,7 +112,7 @@
       "id": "13",
       "name": "hidratante corporal",
       "description": "Este hidratante corporal é formulado para nutrir e proteger sua pele, deixando-a suave e hidratada. Com ingredientes de alta qualidade, ele é perfeito para o cuidado diário da pele. Mime-se com a sensação luxuosa deste hidratante.",
-      "price": 14.99,
+      "price": 14.25,
       "quantity": 0,
       "category": "Cuidados com a Pele",
       "image": "hidratante"
@@ -121,7 +121,7 @@
       "id": "14",
       "name": "batom",
       "description": "Este batom de longa duração oferece cores vibrantes e duradouras para os seus lábios. Com uma fórmula suave e uma variedade de tons deslumbrantes, é a escolha perfeita para realçar a sua beleza. Adicione um toque de elegância ao seu visual com este batom de alta qualidade.",
-      "price": 9.99,
+      "price": 9.50,
       "quantity": 0,
       "category": "Maquiagem",
       "image": "batom"
@@ -130,7 +130,7 @@
       "id": "15",
       "name": "parafusadeira",
       "description": "Esta parafusadeira recarregável é a ferramenta perfeita para projetos de montagem e reparos. Com múltiplas configurações de torque e bateria de longa duração, é altamente versátil. Torne as tarefas de parafusamento mais fáceis com esta parafusadeira de alta qualidade.",
-      "price": 29.99,
+      "price": 29.50,
       "quantity": 0,
       "category": "Ferramentas",
       "image": "parafusadeira"
@@ -148,7 +148,7 @@
       "id": "17",
       "name": "carro de controle remoto",
       "description": "Este carro de controle remoto proporciona diversão emocionante para crianças e adultos. Com controle remoto de fácil utilização e movimentos ágeis, você pode pilotar este carro em terrenos variados. Seja para corridas ou para o entretenimento, este carro oferece horas de alegria.",
-      "price": 69.99,
+      "price": 89.99,
       "quantity": 0,
       "category": "Brinquedos",
       "image": "carro_controle_remoto"
@@ -157,7 +157,7 @@
       "id": "18",
       "name": "mouse",
       "description": "Este mouse ergonômico oferece precisão e conforto durante horas de uso. Com botões programáveis e sensor de alta qualidade, é a escolha perfeita para trabalho e jogos. Experimente o desempenho excepcional deste mouse.",
-      "price": 19.99,
+      "price": 20.00,
       "quantity": 0,
       "category": "Periféricos",
       "image": "mouse"
@@ -166,7 +166,7 @@
       "id": "19",
       "name": "teclado",
       "description": "Este teclado é projetado para eficiência e conforto. Com teclas silenciosas e layout ergonômico, é ideal para escrita e jogos. Aproveite uma digitação suave e precisa com este teclado de alta qualidade.",
-      "price": 29.99,
+      "price": 30.00,
       "quantity": 0,
       "category": "Periféricos",
       "image": "teclado"
@@ -175,7 +175,7 @@
       "id": "20",
       "name": "headset",
       "description": "Este headset oferece áudio imersivo e comunicação clara. Com almofadas confortáveis e microfone removível, é perfeito para jogos e chamadas. Desfrute de som de alta qualidade e conforto durante horas de uso.",
-      "price": 39.99,
+      "price": 49.99,
       "quantity": 0,
       "category": "Áudio",
       "image": "headset"
@@ -184,7 +184,7 @@
       "id": "21",
       "name": "palhetas limpador de para-brisa",
       "description": "Essas palhetas limpadoras de para-brisa garantem uma visibilidade clara durante a condução em condições de chuva. Com borrachas de qualidade e design durável, elas mantêm o seu para-brisa limpo e seguro. Não deixe que a chuva atrapalhe a sua jornada com estas palhetas confiáveis.",
-      "price": 9.99,
+      "price": 10.59,
       "quantity": 0,
       "category": "Automóveis",
       "image": "palhetas_para_brisa"

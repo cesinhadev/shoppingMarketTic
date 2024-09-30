@@ -20,7 +20,7 @@ const Card = ({ item }: Product) => {
 					<span>{item.name}</span>
 				</div>
 				<div className="mb-2 flex items-center justify-center">
-					<h3>R$ {item.price}</h3>
+					<h3>R$ {item.price.toFixed(2)}</h3>
 				</div>
 			</div>
 			<Button
