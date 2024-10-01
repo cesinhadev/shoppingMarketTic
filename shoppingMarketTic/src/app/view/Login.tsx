@@ -34,12 +34,13 @@ const Login = () => {
 	}
 
 	return(
-		<div>
+		<div className="flex flex-col items-center justify-center gap-6">
 			<Header/>
-			<h1>Login</h1>
+			<h1 className="capitalize">login</h1>
 			<form onSubmit={(e) => void handleSubmit(e)}>
 				<Input 
-				type="email" 
+				type="email"
+				variant="secundary"  
 				placeholder="Inserir seu Email"
 				value={formData.email}
 				name="email"
@@ -48,6 +49,7 @@ const Login = () => {
 
 				<Input 
 				type="password" 
+				variant="secundary" 
 				placeholder="Coloque a sua Senha"
 				value={formData.password}
 				name="password"
