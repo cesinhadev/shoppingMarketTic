@@ -33,7 +33,7 @@ const Cadastro = () => {
 	return (
 		<div className="flex flex-col items-center justify-center gap-6">
 			<Header/>
-			<h1 className="capitalize">cadastro</h1>
+			<h1 className="uppercase font-bold">cadastro</h1>
 			<form className="flex flex-col gap-6" onSubmit={(e) => handleSubmit(e)}>
 				<Input
 					type="text"

@@ -36,8 +36,8 @@ const Login = () => {
 	return(
 		<div className="flex flex-col items-center justify-center gap-6">
 			<Header/>
-			<h1 className="capitalize">login</h1>
-			<form onSubmit={(e) => void handleSubmit(e)}>
+			<h1 className="uppercase font-bold">login</h1>
+			<form className="flex flex-col gap-6" onSubmit={(e) => void handleSubmit(e)}>
 				<Input 
 				type="email"
 				variant="secundary"  
@@ -58,6 +58,7 @@ const Login = () => {
 
 				<Button type="submit"> Acessar </Button>
 			</form>
+			<span>não possui cadastro ?</span>
 		</div>
 	)
 }
