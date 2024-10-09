@@ -4,7 +4,7 @@ import Home from "./app/view/Home";
 import ShoppingCart from "./app/view/ShoppingCart";
 import Layout from "./app/components/Layout";
 import Login from "./app/view/Login";
-import Cadastro from "./app/view/Cadastro";
+import Cadastro from "./app/view/SignUp";
 
 function App() {
 	const route = createBrowserRouter([

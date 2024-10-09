@@ -5,10 +5,11 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import authService from "../services/auth.service";
 
-function Login() {
+function Signup() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    username: "",
   });
 
   const navigate = useNavigate();
@@ -19,18 +20,18 @@ function Login() {
     }
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    try {
-      const res = authService.authenticate(formData);
-      console.log("Ocorreu um erro ",res);
-      authService.setLoggedUser(await res);
-      return navigate("/");
-    } catch {
-      console.log("Algo deu errado");
-    }
-  };
+    void fetch("http://localhost:3001/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        navigate("/login");
+      });
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,11 +39,16 @@ function Login() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      <h1>Login</h1>
-      <form
-        className="flex flex-col gap-6"
-        onSubmit={(e) => void handleSubmit(e)}
-      >
+      <h1 className="font-bold">Sign-up</h1>
+      <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-6">
+        <Input
+          type="text"
+					variant="secundary"
+          placeholder="Username"
+          value={formData.username}
+          name="username"
+          onChange={(e) => handleChange(e)}
+					/>
         <Input
           type="text"
 					variant="secundary"
@@ -50,7 +56,7 @@ function Login() {
           value={formData.email}
           name="email"
           onChange={(e) => handleChange(e)}
-        />
+					/>
         <Input
           type="password"
 					autoComplete="current-password"
@@ -60,16 +66,10 @@ function Login() {
           name="password"
           onChange={(e) => handleChange(e)}
         />
-        <Button type="submit">Acessar</Button>
+        <Button type="submit">Cadastrar</Button>
       </form>
-				<h1 className="font-bold">
-					Não possui o cadastro? 
-				</h1>
-      <Button className="cursor-pointer" onClick={() => navigate("/register")}>
-        Sign Up
-      </Button>
     </div>
   );
 }
 
-export default Login;
+export default Signup;
